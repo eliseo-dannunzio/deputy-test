@@ -61,8 +61,12 @@ const getSubordinates = function(id1) {
 	// Get Subordinates for User with specific ID
 	const getSubords = function(id2) {
 		// get role id
-		let usersSelected,
-			roleId = getUser(id2).Role;
+		let usersSelected;
+		// Return empty set if user ID is invalid and thus returns an undefined user object
+		if(getUser(id2) === undefined) {
+			return [];
+		}
+		let roleId = getUser(id2).Role;
 		// get associated subordinate roles
 		let rolesSelected = roles.filter(obj => {
 			return obj.Parent === roleId;
