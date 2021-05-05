@@ -25,4 +25,14 @@ describe("getSubordinates functionality", () => {
 		const output = [];
 		expect(getSubordinates(input)).toEqual(output);
 	});
+	test("it should provide no subordinates if an invalid value is provided (User ID 0, does not exist)", () => {
+		const input = 0;
+		const output = [];
+		expect(getSubordinates(input)).toEqual(output);
+	});
+	test("it should provide no subordinates if an invalid value is provided (User ID -1, does not exist)", () => {
+		const input = -1;
+		const output = [];
+		expect(getSubordinates(input)).toEqual(output);
+	});
 });
